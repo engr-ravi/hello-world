@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script type="text/javascript" src="https://w6drq.sharepoint.com/sites/ArunIndustries/SiteAssets/Karan.code/Karan.code/Rest.js"></script>
+    <title>Form Example</title>
+</head>
+<body>
+    <div id="myForm">
+        <label for="textInput">Name:</label>
+        <input type="text" id="textInput" name="textInput"><br>
+
+        <label>Gender:</label>
+        <input type="radio" id="radioOption1" name="radioOption" value="Male">
+        <label for="radioOption1">Male</label>
+        <input type="radio" id="radioOption2" name="radioOption" value="Female">
+        <label for="radioOption2">Female</label><br>
+
+        <label for="dropdown">City:</label>
+        <select id="dropdown" name="dropdown">
+            <option value="Ballia">Ballia</option>
+            <option value="lucknow">lucknow</option>
+            <option value="kanpur">kanpur</option>
+        </select><br>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+        <button type="button" onclick="retrieveItems()">Read Data</button>
+    </div>
+    
+
+    <table id="dataTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>Nmae</th>
+                <th>Gender</th>
+                <th>City</th>
+                <th>Edit</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        function submitForm() {
+            // Get the form data
+            var formData = {
+                textInput: document.getElementById('textInput').value,
+                radioOption: document.querySelector('input[name="radioOption"]:checked').value,
+                dropdown: document.getElementById('dropdown').value
+            };
+
+            // Do something with the form data (e.g., send it to the server)
+           createItem(formData);
+        }
+    </script>
+</body>
+</html>
